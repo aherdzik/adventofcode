@@ -13,7 +13,9 @@ struct split
 
 struct WireCommand{
     int input1 =-1;
+    bool input1IsLocation = true;
     int input2 = -1;
+    bool input2IsLocation = true;
     CommandType commandType = CommandType::NONE;
     int destination =-1;
 };
@@ -29,6 +31,10 @@ public:
     int wireValues[676];
     vector<WireCommand> commands;
     WireCommand parseLine(string line);
+    void runProgram();
+    int resolveWire(int input1, int input2, CommandType commandType);
+    void runCommand(WireCommand curCurCommand);
+
     template <typename Container>
     Container& split(Container&                            result,
         const typename Container::value_type& s,
