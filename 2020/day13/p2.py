@@ -16,7 +16,6 @@ for k in busData.items():
         step = k[1]
     else:
         while (currentNum + k[0]) % k[1] != 0:
-            print(currentNum , k[1], currentNum + k[0] % k[1] )
             currentNum = currentNum + step
         step = step * k[1]
 print(currentNum)
